@@ -1,4 +1,5 @@
 # team: Whiskr
+Project name: Whiskr
 Student:
 Jad Mroueh
 Youssef acherki 
