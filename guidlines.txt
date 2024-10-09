@@ -1,0 +1,9 @@
+Color palette:
+Primary Color (Warm & Inviting) – Soft Pink (#FF6F91)
+Accent Color (Playful) – Soft Blue (#6EC1E4)
+Secondary Color (Energetic) – Warm Yellow (#FFD166)
+Neutral Color (Background) – Soft Cream (#FFF5E1)
+Text Color (Contrast) – Charcoal Gray (#333333)
+
+Font:
+Varela round
