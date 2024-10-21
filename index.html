@@ -1,62 +1,92 @@
-<!---Log-in-->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whiskr: The Ultimate Pet Playdate Connection</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSHKR Messaging</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #messages {
+            border: 1px solid #ccc;
+            width: 80%;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: none;
+        }
+
+        input[type="text"] {
+            width: 75%;
+            padding: 10px;
+            margin-right: 10px;
+            display: none; 
+        }
+
+        button.send {
+            display: none;
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div class="logo">
-      <a href="#">Whiskr.</a>
-      <!-- <a class="company-logo" href="index.html"><img src="images/company-logo.png"></a> -->
-    </div>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#">Arrange a Playdate</a>
-      <a href="#">Get Whiskr+</a>
-      <a href="#">Your Messages</a>
-      <a href="aboutUs.html">About Us</a>
-    </nav>
-  </header>
+    <h1>Welcome to WSHKR</h1>
+    <p>Your go-to platform for connecting with customer service and other users.</p>
+    <button class="button" id="startMessagingButton">Go to Messaging</button>
 
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button class="button send" onclick="sendMessage()">Send</button>
 
-  <section>
-    <div class="main">
-      <div class="content-wrapper">
-        <div class="detail">
-          <h1> <br> Welcome to <span style="color:#6EC1E4;">Whiskr</span></h1>
-          <p>Whiskr is a platform designed to connect pet owners, helping them arrange<br> fun outings or
-            "playdates" for their pets with
-            other pets.</p>
-          <div class="social">
-            <h1>Get our App!</h1>
-            <a href="#">
-              <img src="images/apple-store.svg" alt="Apple Store">
-            </a>
-            <a href="#">
-              <img src="images/play-store.svg" alt="Play Store">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="additional-content">
-        <h2>Why Choose Whiskr?</h2>
-        <ul>
-          <li>Connect with local pet owners</li>
-          <li>Find perfect playmates for your pets</li>
-          <li>Organize fun and safe pet meetups</li>
-          <li>Build a community of pet lovers</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <script src="script.js"></script>
+    <script>
+        const startMessagingButton = document.getElementById('startMessagingButton');
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.querySelector('.send');
+
+        let socket;
+
+        startMessagingButton.onclick = function() {
+            this.style.display = 'none'; 
+            messagesDiv.style.display = 'block'; 
+            messageInput.style.display = 'block'; 
+            sendButton.style.display = 'block'; 
+
+            
+            socket = new WebSocket('ws://localhost:8080');
+
+            socket.onmessage = function(event) {
+                let messageDiv = document.createElement('div');
+                messageDiv.textContent = event.data;
+                messagesDiv.appendChild(messageDiv);
+            };
+        };
+
+        function sendMessage() {
+            socket.send(messageInput.value);
+            messageInput.value = ''; 
+        }
+    </script>
 </body>
-
 </html>
