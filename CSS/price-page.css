@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  line-height: 1.6;
+  background-color: #7a6c5d;
+  position: relative;
+}
+
+header {
+  padding: 0.5rem 5%;
+  background-color: #7a6c5d;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: auto;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.logo a {
+  color: #6ec1e4;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo a:hover {
+  color: #c0b59e;
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #c0b59e;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #6ec1e4;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #6ec1e4;
+  transition: all 0.3s ease;
+}
+
+nav a:hover::before,
+nav a.active::before {
+  transform: translateX(0);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+nav a:hover,
+nav a.active {
+  color: #6ec1e4;
+  background-color: rgba(209, 183, 135, 0.25);
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #6ec1e4;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  color: #4a9bc0;
+}
+
+.rectangle1 {
+  height: 250px;
+  width: 400px;
+  background-color: #9f8f7e;
+  border-radius: 5px;
+  border: none;
+  border-width: 0.5px;
+  margin-right: 5px;
+  position: fixed;
+  left: 290px;
+  top: 111.5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 1s;
+}
+.rectangle1:hover {
+  box-shadow: 5px 5px 10px rgba(159, 155, 155, 0.598);
+}
+.rectangle2 {
+  height: 700px;
+  width: 400px;
+  background-color: #9f8f7e;
+  margin-left: 15px;
+  margin-top: 1px;
+  border-radius: 5px;
+  border: none;
+  border-width: 0.5px;
+  position: fixed;
+  left: 700px;
+  top: 110px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 1.5s;
+}
+.rectangle2:hover {
+  box-shadow: 5px 5px 30px #ffffff;
+}
+.rectangle3 {
+  height: 417px;
+  width: 400px;
+  background-color: #9f8f7e;
+  border-radius: 5px;
+  border: none;
+  border-width: 0.5px;
+  margin-right: 5px;
+  position: fixed;
+  left: 290px;
+  top: 391.5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 1.5s;
+}
+.rectangle3:hover {
+  box-shadow: 5px 5px 30px rgba(255, 255, 255, 0.532);
+}
+.rectangle0 {
+  height: 65px;
+  width: 2000px;
+  background-color: #92816f;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+h1 {
+  align-items: center;
+  font-family: "Varela Round";
+  height: 60px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #e7e4e0;
+  position: fixed;
+  left: 385px;
+  top: 170px;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Varela Round";
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 28px;
+  height: 60px;
+  width: 400px;
+  background: linear-gradient(to right, #49b9ff59, #0041e67e);
+}
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Varela Round";
+  font-weight: 800px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 28px;
+  height: 60px;
+  width: 400px;
+  background: linear-gradient(to right, #49b9ff59, #0041e67e);
+}
+h5 {
+  text-align: center;
+  font-family: "Varela Round";
+  font-size: 23px;
+  height: 60px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #e7e4e0;
+  position: fixed;
+  left: 385px;
+  top: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h6 {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 10px;
+  font-family: "Varela Round";
+  color: #6ec1e4;
+}
+.homebutton {
+  font-size: 25px;
+  margin-left: 1300px;
+  position: fixed;
+  top: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Varela Round";
+  color: #6ec1e4;
+  font-weight: 100px;
+  height: 45px;
+  border-radius: 100px;
+  width: 85px;
+  transition: box-shadow 0.15s;
+}
+.ppf {
+  position: fixed;
+  top: 10px;
+  right: 0;
+}
+h7 {
+  color: #000000;
+  text-align: center;
+  font-family: "Varela Round";
+  font-size: 23px;
+  height: 60px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #e7e4e0;
+  position: fixed;
+  top: 200px;
+  left: 810px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text2 {
+  color: #000000;
+  font-family: "Varela Round";
+  font-size: 25;
+  position: fixed;
+  top: 250px;
+  left: 740px;
+  height: 900px;
+  width: 300px;
+}
+.text3 {
+  color: #000000;
+  font-family: "Varela Round";
+  font-size: 25;
+  position: fixed;
+  top: 510px;
+  left: 310px;
+  height: 900px;
+  width: 300px;
+}
+.petfriends {
+  position: fixed;
+  top: 120px;
+  left: 350px;
+}

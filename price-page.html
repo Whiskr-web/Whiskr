@@ -1,257 +1,79 @@
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <style>
-        body{
-            background-color: #7a6c5d;
-        }
-        .rectangle1{
-            height: 250px;
-            width: 400px;
-            background-color:#9f8f7e;
-            border-radius: 5px;
-            border: none;
-            border-width: 0.5px;
-            margin-right: 5px;
-            position: fixed;
-            left: 290px;
-            top: 111.5px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0,0.15);
-            transition: box-shadow 1s; 
-        }
-        .rectangle1:hover{
-            box-shadow: 5px 5px 10px rgba(159, 155, 155, 0.598);
-
-        }
-        .rectangle2{
-            height: 700px;
-            width: 400px;
-            background-color: #9f8f7e;
-            margin-left: 15px;
-            margin-top: 1px;
-            border-radius: 5px;
-            border: none;
-            border-width: 0.5px;
-            position: fixed;
-            left: 700px;
-            top: 110px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-            transition: box-shadow 1.5s; 
-        }
-        .rectangle2:hover{
-            box-shadow: 5px 5px 30px #ffffff;
-        }
-        .rectangle3{
-            height: 417px;
-            width: 400px;
-            background-color: #9f8f7e;
-            border-radius: 5px;
-            border: none;
-            border-width: 0.5px;
-            margin-right: 5px;
-            position: fixed;
-            left: 290px;
-            top: 391.5px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0,0.15);
-            transition: box-shadow 1.5s;
-        }
-        .rectangle3:hover{
-            box-shadow: 5px 5px 30px rgba(255, 255, 255, 0.532);
-        }
-        .rectangle0{
-            height: 65px;
-            width: 2000px;
-            background-color:#92816f;
-            position: fixed;
-            left: 0;
-            top: 0;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0,0.15);
-
-        }
-        h1{
-            align-items: center;
-            font-family: 'Varela Round';
-            height: 60px;
-            width: 200px;
-            border-radius: 5px;
-            background-color: #e7e4e0;
-            position:fixed;
-            left: 385px;
-            top: 170px;
-            display: flex;
-            justify-content: center;
-        }
-        h2{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Varela Round';
-            margin-top: 10px;
-            margin-bottom: 0px;
-            font-size: 28px;
-            height: 60px;
-            width: 400px;
-            background: linear-gradient(to right, #49b9ff59,#0041e67e);
-        }
-        h3{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Varela Round';
-            font-weight: 800px;
-            margin-top: 10px;
-            margin-bottom: 0px;
-            font-size: 28px;
-            height: 60px;
-            width: 400px;
-            background: linear-gradient(to right, #49b9ff59,#0041e67e);
-        }
-        h5{
-            text-align: center;
-            font-family: 'Varela Round';
-            font-size: 23px;
-            height: 60px;
-            width: 200px;
-            border-radius: 5px;
-            background-color: #e7e4e0;
-            position:fixed;
-            left: 385px;
-            top: 430px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        h6{
-            font-size: 30px;
-            margin-top: 20px;
-            margin-left: 10px;
-            font-family: 'Varela Round';
-            color: #6ec1e4;
-        }
-        .homebutton{
-            font-size: 25px;
-            margin-left: 1300px;
-            position: fixed;
-            top: 15;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Varela Round';
-            color: #6EC1E4;
-            font-weight: 100px;
-            height: 45px;
-            border-radius:100px;
-            width: 85px;
-            transition: box-shadow 0.15s;
-        }
-        .ppf{
-            position: fixed;
-            top: 10px;
-            right: 0;
-        }
-        h7{
-            color: #000000;
-            text-align: center;
-            font-family: 'Varela Round';
-            font-size: 23px;
-            height: 60px;
-            width: 200px;
-            border-radius: 5px;
-            background-color: #e7e4e0;
-            position:fixed;
-            top: 200px;
-            left: 810px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .text2{
-            color: #000000;
-            font-family: 'Varela Round';
-            font-size: 25;
-            position:fixed;
-            top: 250px;
-            left: 740px;
-            height: 900px;
-            width: 300px;
-            
-        }
-        .text3{
-            color: #000000;
-            font-family: 'Varela Round';
-            font-size: 25;
-            position:fixed;
-            top: 510px;
-            left: 310px;
-            height: 900px;
-            width: 300px;
-        }
-        .petfriends{
-            position:fixed;
-            top: 120px;
-            left: 350px;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="CSS/price-page.css">
 </head>
-<body></body>
-<div class="rectangle1">
-    <h1 class="free">
-        FREE
-    </h1>
-    <h2>
-        Regular
-    </h2>
-</div>
-<div class="rectangle2">
-    <h7 class="10dollar">
-        $ 10 per months
-    </h7>
-    <h2>
-        PAW ELITE
-    </h2>
-    <p class="text2">
-        - No ads <br>
-        <br>
-        - Highlighted<br>
-        <br>
-        - Advanced profile  recommendations <br>
-        <br>
-        - Enhanced <br>
-        <br>
-        - Advanced messaging  features<br>
-        <br>
-        - Incognito <br>
-        <br>
-        - See who liked you
-    </p>
-</div>
-<div class="rectangle3">
-    <h5 class="5dollar">
-        $ 5 per months
-    </h5>
-    <p class="text3">
-        - No ads <br>
-        <br>
-        - Highlighted<br>
-        <br>
-        - Advanced profile  recommendations <br>
-        <br>
-    </p>
-    <h3>
-        V.I.Paw
-    </h3>
-    
-<div class="rectangle0">
-    <h6>
-    Whiskr.
-    </h6>
-    <div class="homebutton">
-        Home
+<header>
+    <div class="logo">
+        <a href="index.html">Whiskr.</a>
     </div>
-</div>
-<div class="ppf">
-    <img src="profile.svg" alt="profile" width="60" height="50" >
-</div>
-<div class="petfriends">
-    <img src="petfriends.png" alt="profile" width="300" height="350" >
-</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Arrange a Playdate</a>
+        <a href="price-page.html" class="active">Get Whiskr+</a>
+        <a href="#">Your Messages</a>
+        <a href="aboutUs.html">About Us</a>
+    </nav>
+</header>
+
+<body>
+    <div class="rectangle1">
+        <h1 class="free">
+            FREE
+        </h1>
+        <h2>
+            Regular
+        </h2>
+    </div>
+    <div class="rectangle2">
+        <h7 class="10dollar">
+            $ 10 per months
+        </h7>
+        <h2>
+            PAW ELITE
+        </h2>
+        <p class="text2">
+            - No ads <br>
+            <br>
+            - Highlighted<br>
+            <br>
+            - Advanced profile recommendations <br>
+            <br>
+            - Enhanced <br>
+            <br>
+            - Advanced messaging features<br>
+            <br>
+            - Incognito <br>
+            <br>
+            - See who liked you
+        </p>
+    </div>
+    <div class="rectangle3">
+        <h5 class="5dollar">
+            $ 5 per months
+        </h5>
+        <p class="text3">
+            - No ads <br>
+            <br>
+            - Highlighted<br>
+            <br>
+            - Advanced profile recommendations <br>
+            <br>
+        </p>
+        <h3>
+            V.I.Paw
+        </h3>
+
+        <div class="rectangle0">
+            <h6>
+                Whiskr.
+            </h6>
+            <div class="homebutton">
+                Home
+            </div>
+        </div>
+        <div class="ppf">
+            <img src="profile.svg" alt="profile" width="60" height="50">
+        </div>
+        <div class="petfriends">
+            <img src="petfriends.png" alt="profile" width="300" height="350">
+        </div>
+</body>
