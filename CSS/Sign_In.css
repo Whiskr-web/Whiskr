@@ -186,3 +186,9 @@ text-align: center;
 line-height: 45px;
 transition: box-shadow 0.15s;
 cursor: pointer;}
+
+.Button:hover {
+    background-color: #d9d9d9;}
+
+.Button:active {
+  background-color: #c0c0c0;}
