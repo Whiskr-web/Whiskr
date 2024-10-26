@@ -1,96 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="Sign_In.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign In</title>
         <h1>Sign In</h1>
-        <style>
-        h1 {
-        position: absolute;
-        top: 24vh;
-        left: 44.5vw;
-        margin: 0;
-        z-index: 10;
-        font-family: "Varela round";
-        font-size: 3.5vw;
-        color: #333333;}
-
-        body {background-color: #c0b59e;}
-        </style>
       </head>
 
 <body>    
     <div class="box"></div>
-<style>        
-.box {
-  width: 37vw;
-  height: 50vh;
-  border: 5px solid black;
-  margin: 0vh auto 0;
-  background-color: #a9947e;
-  transform: translateY(20vh);
-  z-index: 1;}  
 
-input[type="text"],input[type="password"] {
-  font-size: 2.2vh; 
-  padding: 1.25vh;
-  width: 20vw;
-  height: 2.5vh;
-  font-family: "Varela round";
-  margin-bottom: 2vh;
-  color: #333333;
-  border: 1px solid black;
-  border-radius: 10px;}
-
-label[for="email"],label[for="password"] {
-  font-size: 1.3vw; 
-  padding: 1vh;
-  font-family: "Varela round";
-  color: #333333;}
-
-.inputMail {
-    position: absolute;
-    top: 35vh;
-    left: 39vw;
-    color: #333333;
-    height: 2vh;}
-
-input[type="text"]:hover,input[type="password"]:hover, select:hover {
-    transition: background-color 0.1s ease;
-    background-color: #d9d9d9;}
-
-.Button {
-    position: absolute;
-    top: 55vh;
-    left:44vw;
-    color: #333333;
-    border: 1px solid black;
-    border-radius: 10px;
-    width:12.5vw;
-    height: 6vh;
-    font-family: "Varela round";
-    font-size: 1.7vw; }
-
-.show-password {
-    font-size: 1.2vw;
-    margin-left: 10px;
-    background-color: #e9e9e9;
-    color: #333333;
-    border: 1px solid black;
-    border-radius: 3px;
-    font-family: "Varela round";}
-
-.SignUp {
-  position: absolute;
-  top: 65vh;
-  left: 41vw;
-  color: #333333;
-  font-family: "Varela round";
-  font-size: 1.2vw; }
-
-.SignUp a {
-    color: #3236ff;
-    text-decoration: underline;}
-</style>
 
 <button class="Button">Sign Up</button>
 
@@ -103,6 +22,7 @@ input[type="text"]:hover,input[type="password"]:hover, select:hover {
       <label for="email">Email Address:</label><br>
       <input type="text" id="email" name="email"><br>
 
+      <label for="password">Password:</label><br>
       <input type="password" id="password" name="password">
       <button type="button" class="show-password" onclick="showpassword()">Show</button>
     </form> 
@@ -133,59 +53,4 @@ input[type="text"]:hover,input[type="password"]:hover, select:hover {
         Sign Up
   </div>
 
-<style>
-    .rectangle0 {
-      height: 65px;
-      width: 100%;
-      background-color: #92816f;
-      position: fixed;
-      left: 0;
-      top: 0;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-      z-index: 20; }
-    
-    h6 {
-        font-size: 30px;
-        margin-left: 20px;
-        margin-top: 15px;
-        font-family: 'Varela Round';
-        color: #6ec1e4;
-        display: inline-block;}
-
-    .homebutton {
-        font-size: 25px;
-        margin-right: 20px;
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        font-family: 'Varela Round';
-        color: #6ec1e4;
-        height: 45px;
-        border-radius: 100px;
-        width: 85px;
-        text-align: center;
-        line-height: 45px;
-        transition: box-shadow 0.15s;
-        cursor: pointer;
-    }
-    .homebutton:hover,.signupbutton:hover {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);}
-
-.signupbutton {
-  font-size: 25px;
-  margin-right: 130px;
-  position: fixed;
-  top: 15px;
-  right: 40px;
-  font-family: 'Varela Round';
-  color: #6ec1e4;
-  height: 45px;
-  border-radius: 100px;
-  width: 110px;
-  text-align: center;
-  line-height: 45px;
-  transition: box-shadow 0.15s;
-  cursor: pointer;
-}
-    </style>
 </body>
