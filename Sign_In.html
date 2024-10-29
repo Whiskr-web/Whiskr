@@ -1,56 +1,254 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <link rel="stylesheet" href="CSS/Sign_In.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign In</title>
-        <h1>Sign In</h1>
-      </head>
+<html lang="en">
 
-<body>    
-    <div class="box"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiskr Sign In</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<button class="Button">Sign Up</button>
+        body {
+            font-family: "Varela Round", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('images/dog-cat3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
 
-<div class="SignUp">
-    Don't have an account? <a href="Sign_Up.html">Sign up here </a>
-</div>
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+            z-index: 1;
+        }
 
-<div class="inputMail">
-    <form>
-      <label for="email">Email Address:</label><br>
-      <input type="text" id="email" name="email"><br>
+        .login-container {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(122, 108, 93, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-      <label for="password">Password:</label><br>
-      <input type="password" id="password" name="password">
-      <button type="button" class="show-password" onclick="showpassword()">Show</button>
-    </form> 
-</div>
+        h1 {
+            color: #b3815b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
 
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-<script>
-    function showpassword() {
-        var passwordField = document.getElementById("password");
-        var toggleButton = document.querySelector(".show-password");
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                toggleButton.textContent = "Hide";
-            } else {
-                passwordField.type = "password";
-                toggleButton.textContent = "Show";
-              }}
-        </script>
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #c0b59e;
+            color: #c0b59e;
+            font-size: 1rem;
+            outline: none;
+        }
 
-<div class="rectangle0">
-    <h6>
-    Whiskr.
-    </h6>
-    <div class="homebutton">
-        Home
+        .input-group input::placeholder {
+            color: #c0b59e;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            padding: 5px;
+            transition: color 0.3s ease;
+            stroke: #c0b59e;
+        }
+
+        .password-toggle:hover {
+            stroke: #8b5e3c;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #c0b59e;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #c0b59e;
+            outline: none;
+            cursor: pointer;
+            margin: 0;
+            position: relative;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        .remember input[type="checkbox"]:checked {
+            background-color: #b3815b;
+        }
+
+        .remember input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #c0b59e;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .forgot-password {
+            color: #b3815b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover {
+            color: #8b5e3c;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #b3815b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .login-button:hover {
+            background-color: #8b5e3c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(179, 129, 91, 0.3);
+        }
+
+        .register {
+            text-align: center;
+            color: #c0b59e;
+        }
+
+        .register a {
+            color: #b3815b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .register a:hover {
+            color: #6d4a2e;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                margin: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Log In</h1>
+        <div class="input-group">
+            <input type="email" placeholder="Enter your email">
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Enter your password">
+            <svg class="password-toggle" id="togglePassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+        </div>
+        <div class="options">
+            <label class="remember">
+                <input type="checkbox">
+                Remember me
+            </label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+        <a href="index.html" class="login-button">Log In</a>
+        <p class="register">
+            Don't have an account? <a href="Sign_Up.html">Register</a>
+        </p>
     </div>
-    <div class="signupbutton">
-        Sign Up
-  </div>
 
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle the icon paths for show/hide states
+            if (type === 'password') {
+                this.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                `;
+            } else {
+                this.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                `;
+            }
+        });
+    </script>
 </body>
+
+</html>
