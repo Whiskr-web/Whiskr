@@ -1,0 +1,221 @@
+h1 {
+    position: absolute;
+    top: 18vh;
+    left: 44.5vw;
+    margin: 0;
+    z-index: 10;
+    font-family: "Varela round";
+    font-size: 3.5vw;
+    color: #333333;}
+
+  body {background-color: #c0b59e;}
+
+  html, body {
+    height: 100%;
+    margin: 0;}
+    
+    .box {
+      width: 37vw;
+      height: 73vh;
+      border: 5px solid black;
+      margin: 0vh auto 0;
+      background-color: #a9947e;
+      transform: translateY(14vh);
+      z-index: 1;}  
+      
+    .mainB select {
+      font-size: 2.2vh; 
+      padding: 1.25vh;
+      width: 8.5vw;
+      height: 5vh;
+      font-family: "Varela round";
+      position: relative;
+      color: #333333;
+      max-width: 100%;}
+    
+    .drop1 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      top: 28vh;
+      left: 36vw;
+      position: absolute;}
+    
+    .drop2 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      top: 28vh;
+      left: 46vw;
+      position: absolute;}
+    
+    .drop3 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      top: 28vh;
+      left: 56vw;
+      position: absolute;}
+    
+    .dropdownLabel {
+      position: absolute;
+      font-size: 2.2vh;
+      font-family: "Varela round";
+      color: #333333;
+      margin-bottom: 1vh;
+      top: 25.5vh;
+      left: 36.5vw;}
+
+      label[for="email"],label[for="password"], label[for="FirstName"],label[for="LastName"] {
+        font-size: 1.3vw; 
+        padding: 1vh;
+        font-family: "Varela round";
+        color: #333333;}
+      
+      input[type="text"],input[type="password"] {
+        font-size: 2.2vh; 
+        padding: 1.25vh;
+        width: 20vw;
+        height: 2.5vh;
+        font-family: "Varela round";
+        margin-bottom: 2vh;
+        color: #333333;
+        border: 1px solid black;
+        border-radius: 10px;}
+      
+       select {
+        color: #333333;
+        border: 1px solid black;
+        border-radius: 10px;}
+      
+      input[type="text"]:hover, input[type="password"]:hover, select:hover {
+        transition: background-color 0.1s ease;
+        background-color: #d9d9d9;}
+      
+      .inputMail {
+            position: absolute;
+            top: 48vh;
+            left: 39vw;
+            color: #333333;
+            height: 2vh;}
+      
+          .inputName1 {
+            position: absolute;
+            top: 37vh;
+            left: 37vw;
+            color: #333333;}
+      
+          .inputName2 {
+            position: absolute;
+            top: 37vh;
+            left: 51vw;
+            color: #333333;}
+      
+          .inputName1 input[type="text"] {
+            width: 11vw;
+            height: 2.5vh;}
+      
+          .inputName2 input[type="text"] {
+            width: 11vw;
+            height: 2.5vh;}
+
+            .Button {
+                position: absolute;
+                top: 70vh;
+                left:44vw;
+                color: #333333;
+                border: 1px solid black;
+                border-radius: 10px;
+                width:12.5vw;
+                height: 6vh;
+                font-family: "Varela round";
+                font-size: 1.7vw; }
+          
+          .show-password {
+               font-size: 1.2vw;
+               margin-left: 10px;
+               background-color: #e9e9e9;
+               color: #333333;
+               border: 1px solid black;
+               border-radius: 3px;
+              font-family: "Varela round";}
+          
+          .SignIn {
+            position: absolute;
+            top: 80vh;
+            left: 41vw;
+            color: #333333;
+            font-family: "Varela round";
+            font-size: 1.2vw;}
+          
+          .SignIn a {
+            color: #3236ff;
+            text-decoration: underline;}
+
+            .rectangle0 {
+                height: 65px;
+                width: 100%;
+                background-color: #92816f;
+                position: fixed;
+                left: 0;
+                top: 0;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+                z-index: 20; }
+              
+              h6 {
+                  font-size: 30px;
+                  margin-left: 20px;
+                  margin-top: 15px;
+                  font-family: 'Varela Round';
+                  color: #6ec1e4;
+                  display: inline-block;}
+              
+              .homebutton {
+                  font-size: 25px;
+                  margin-right: 20px;
+                  position: fixed;
+                  top: 15px;
+                  right: 20px;
+                  font-family: 'Varela Round';
+                  color: #6ec1e4;
+                  height: 45px;
+                  border-radius: 100px;
+                  width: 85px;
+                  text-align: center;
+                  line-height: 45px;
+                  transition: box-shadow 0.15s;
+                  cursor: pointer;}
+              
+              .homebutton:hover,.signupbutton:hover {
+                  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);}
+              
+              .signupbutton {
+                font-size: 25px;
+                margin-right: 130px;
+                position: fixed;
+                top: 15px;
+                right: 40px;
+                font-family: 'Varela Round';
+                color: #6ec1e4;
+                height: 45px;
+                border-radius: 100px;
+                width: 110px;
+                text-align: center;
+                line-height: 45px;
+                transition: box-shadow 0.15s;
+                cursor: pointer;}
+
+
+                .Button:hover {
+                  background-color: #d9d9d9;
+                }
+
+                .Button:active {
+                  background-color: #c0c0c0;
+                }
+
+
+
