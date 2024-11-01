@@ -1,152 +1,114 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/Sign_Up.css">
-    <title>Sign Up</title>
-    <h1>Sign Up</h1>
-  </head>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whiskr Sign Up</title>
+  <link rel="stylesheet" href="CSS/Sign_Up.css">
+</head>
 
 <body>
-  <div class="box"></div>
+  <div class="signup-container">
+    <h1>Sign Up</h1>
 
-<button class="Button">Sign Up</button>
+    <div class="input-group">
+      <label>Please enter your birthday:</label>
+      <div class="birthday-fields">
+        <select id="day">
+          <option value="" disabled selected>Day</option>
+        </select>
+        <select id="month">
+          <option value="" disabled selected>Month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <select id="year">
+          <option value="" disabled selected>Year</option>
+        </select>
+      </div>
+    </div>
 
-<div class="SignIn">
-  Already have an account? <a href="Sign_in.html">Sign in here</a>
-</div>
+    <div class="name-fields">
+      <div class="input-group">
+        <input type="text" placeholder="First Name">
+      </div>
+      <div class="input-group">
+        <input type="text" placeholder="Last Name">
+      </div>
+    </div>
 
-<label class="dropdownLabel">Please enter your birthday:</label>
+    <div class="input-group">
+      <input type="email" placeholder="Enter your email">
+    </div>
 
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Create your password">
+      <svg class="password-toggle" id="togglePassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      </svg>
+    </div>
 
-<div class="drop1">
-  <div class="mainB">
-    <select id="day">
-      <option value="">Day</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-      <option value="24">24</option>
-      <option value="25">25</option>
-      <option value="26">26</option>
-      <option value="27">27</option>
-      <option value="28">28</option>
-      <option value="29">29</option>
-      <option value="30">30</option>
-      <option value="31">31</option>
-    </select>
-  </div>
-</div>
+    <a href="index.html" class="signup-button">Sign Up</a>
 
-<div class="drop2">
-  <div class="mainB">
-    <select id="Month">
-      <option value="">Month</option>
-      <option value="1">January</option>
-      <option value="2">February</option>
-      <option value="3">March</option>
-      <option value="4">April</option>
-      <option value="5">May</option>
-      <option value="6">June</option>
-      <option value="7">July</option>
-      <option value="8">August</option>
-      <option value="9">September</option>
-      <option value="10">October</option>
-      <option value="11">November</option>
-      <option value="12">December</option>
-    </select>
-</div>
-</div>
-
-<div class="drop3">
-<div class="mainB">
-  <select id="year">
-    <option value="">Year</option>
-  </select>
-</div>
-</div>
-
-<div class="inputMail">
-  <form>
-    <label for="email">Email Address:</label><br>
-    <input type="text" id="email" name="email"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password">
-    <button type="button" class="show-password" onclick="showpassword()">Show</button>
-  </form> 
-  </div>
-  
-  <div class="inputName1">
-  <form>
-    <label for="FirstName">First Name:</label><br>
-    <input type="text" id="FirstName" name="FirstName"><br>
-  </form> 
-  </div>
-  
-  <div class="inputName2">
-  <form>
-  <label for="LastName">Last Name:</label><br>
-  <input type="text" id="LastName" name="LastName">
-  </form>
+    <p class="login-link">
+      Already have an account? <a href="Sign_In.html">Sign in here</a>
+    </p>
   </div>
 
-<script>
-    const yearDropdown = document.getElementById('year');
-    const startyear = 1900;
-    const currentyear = 2024;
+  <script>
+    // Populate days
+    const daySelect = document.getElementById('day');
+    for (let i = 1; i <= 31; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i < 10 ? `0${i}` : i;
+      daySelect.appendChild(option);
+    }
 
-    for (let year = currentyear; year >= startyear; year--) {
+    // Populate years
+    const yearSelect = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= 1900; year--) {
       const option = document.createElement('option');
       option.value = year;
       option.textContent = year;
-      yearDropdown.appendChild(option);}
+      yearSelect.appendChild(option);
+    }
 
-function showpassword() {
-      var passwordField = document.getElementById("password");
-      var toggleButton = document.querySelector(".show-password");
-      
-      if (passwordField.type === "password") {
-        passwordField.type = "text";
-        toggleButton.textContent = "Hide";
+    // Password toggle functionality
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function () {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+
+      if (type === 'password') {
+        this.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                `;
       } else {
-        passwordField.type = "password";
-        toggleButton.textContent = "Show";
-      }}
-</script>
-
-
-
-
-<div class="rectangle0">
-  <h6>
-  Whiskr.
-  </h6>
-  <div class="homebutton">
-      Home
-  </div>
-  <div class="signupbutton">
-    Sign Up
-</div>
-
+        this.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                `;
+      }
+    });
+  </script>
 </body>
+
 </html>
