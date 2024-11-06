@@ -1,0 +1,35 @@
+.icon{
+    width: 50px;
+    aspect-ratio: 1;
+}
+
+.switchingPanel{
+    display:inline-block;
+    vertical-align: bottom;
+    width: 400px;
+    height: 650px;
+}
+
+.innerPanel{
+    padding: 20px 20px;
+    background-color: rgba(159,143,126,255);
+    border-radius: 20px; 
+    margin: 10px 10px;
+    transition:  0.2s ease;
+    cursor: pointer;
+}
+
+.switchingPanel button{
+    width: 23%;                   /* Set image width as percentage */
+    aspect-ratio: 1;                 /* Maintain the aspect ratio of the images */
+    border-color: transparent;
+    background-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+.innerPanel:hover{
+    padding: 30px 30px;
+    margin: 0px 0px;
+}

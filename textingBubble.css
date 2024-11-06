@@ -1,0 +1,80 @@
+.textingBubble{
+    margin-left: 20px;
+    width: 400px;
+    height: 760px;
+    border-radius: 20px;
+    box-shadow: 
+    inset 0 0em 0em rgb(0 200 0 / 30%),
+    0 0 0 0px white,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.6);
+    background-color: #faf0f0;
+    padding: 0px 0px;
+    display:inline-block;
+    vertical-align: top;
+  }
+
+  .textingHeader{
+    height: 60px;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px; 
+    background-color: #d1c4c4;
+    display:inline-block;
+    vertical-align: top;
+  }
+
+  .headerText{
+    padding-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .unseenPeopleTexting{
+    width: calc(100% - 20px);
+    height: 60px;
+    padding: 10px 10px;
+    background-color:  rgb(230, 230, 230);
+    transition:  0.2s ease; 
+  }
+
+  .unseenPeopleTexting:hover{
+    background-color:  rgb(245, 245, 245);
+  }
+
+
+  .unseenPeopleText{
+    display:inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+    padding-top: 18px;
+  }
+
+  .seenPeopleText{
+    display:inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 18px;
+  }
+
+  .seenPeopleTexting{
+    width: calc(100% - 20px);
+    height: 60px;
+    padding: 10px 10px;
+    background-color:  rgb(244, 244, 244);
+    transition:  0.2s ease; 
+    display:inline-block;
+    vertical-align: top;
+  }
+
+  .seenPeopleTexting:hover{
+    background-color:  rgb(255, 255, 255);
+  }
+
+  .profilePicture{
+    aspect-ratio: 1;
+    height: 100%;
+    border-radius: 50%;
+    display:inline-block;
+    vertical-align: top;
+  }

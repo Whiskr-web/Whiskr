@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSHKR Messaging</title>
+    <!-- Sources to all the css pages and js page I am using, easy access-->
+    <link rel="stylesheet" href="swipingPage.css">
+    <link rel="stylesheet" href="switching.css">
+    <link rel="stylesheet" href="textingBubble.css">
+    <link rel="stylesheet" href="switchingPanel.css">
+    <body>
+        <div class='exterior'>
+            <div class='PanelTotal'>
+                <!-- Text Bubble is right here -->
+                <div class="textingBubble">
+                    <div class = "textingHeader">
+                        <div class = "headerText">
+                            Your Messages
+                        </div>  
+                    </div>
+                    <div class = "seenPeopleTexting">
+                        <img src="swipingImages/image.png" class="profilePicture"  alt="Profile" > 
+                        <div class = "seenPeopleText"> Hey you look really cute... </div>
+                    </div>
+
+                    <div class = "unseenPeopleTexting">
+                        <img src="swipingImages/image.png"class="profilePicture" alt="Profile" >
+                        <div class = "unseenPeopleText"> So you down to get coffee later? </div>
+                    </div>
+                    <div class = "unseenPeopleTexting">
+                        <img src="swipingImages/image.png" class="profilePicture" alt="Profile" >
+                        <div class = "unseenPeopleText"> *Insert flirtatious line* </div>
+                    </div>
+                    <div class = "unseenPeopleTexting">
+                        <img src="swipingImages/image.png" class="profilePicture" alt="Profile" >
+                        <div class = "unseenPeopleText"> *Insert flirtatious line* </div>
+                    </div>
+                    <div class = "unseenPeopleTexting">
+                        <img src="swipingImages/image.png" class="profilePicture" alt="Profile" >
+                        <div class = "unseenPeopleText"> *Insert flirtatious line* </div>
+                    </div>
+                </div>
+                <!-- The dating panel is right here -->
+                <div class="swipingPanel">
+                    <img class="whiskrSelfie" id ="selfie" alt="Profile" >
+                    <div class = "portfolioText">
+                        <div class ="name" id="userName"></div>
+                        <div class ="distance" id="distance">Distance</div>
+                        <div class ="descriptioon" id="description"> Description </div>
+                    </div>
+                    <div class = "portfolioBubbles">
+                        <button onClick="cycleText()" class ="pButton"><img src="swipingImages\X.png" alt="Image 1"/></button>
+                        <button onClick="cycleText()" class ="pButton"><img src="swipingImages\heart.png" alt="Image 2"/></button>
+                        <button onClick="cycleText()" class ="pButton"><img src="swipingImages\lightning.jpg" alt="Image 3"/></button>
+                    </div>
+                </div>
+                <!-- Bubble Asking User to Switch beween versions is right here -->
+                <div class='switchingPanel'>
+                    <button onClick="cycleDating()" class = "switchingPanel">
+                      <div class='switchingPanel'>
+                        <div class="innerPanel">
+                            <img src="swipingImages/dog.png" alt="dog" class='icon'/>
+                            <br>
+                            <br>
+                            <div id="switchingPanelText"></div>
+                        </div>      
+                      </div>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+        <script src="swipingPage.js"></script>
+    </body>
+</html>
