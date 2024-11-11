@@ -1,81 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="CSS/price-page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiskr - Pricing Plans</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #7a6c5d;
+            min-height: 100vh;
+            color: #fff;
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            padding: 0.5rem 5%;
+            background-color: #7a6c5d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2.3rem;
+            font-weight: 800;
+        }
+
+        .logo a {
+            color: #6ec1e4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: #c0b59e;
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #c0b59e;
+            text-decoration: none;
+            font-size: 0.97rem;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #6ec1e4;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            transform: translateX(0);
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #6ec1e4;
+            background-color: rgba(209, 183, 135, 0.25);
+        }
+
+        /* Pricing section styles */
+        .pricing-header {
+            text-align: center;
+            padding: 2rem 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #6ec1e4;
+        }
+
+        .pricing-header p {
+            color: #c0b59e;
+            font-size: 1.1rem;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: #9f8f7e;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 320px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #6ec1e4, #c0b59e);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #6ec1e4;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .plan-duration {
+            color: #c0b59e;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            margin: 2rem 0;
+            list-style: none;
+        }
+
+        .feature-list li {
+            color: #ffffff;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #6ec1e4;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: none;
+            background: #6ec1e4;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #5db1d4;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid #c0b59e;
+            color: #c0b59e;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(192, 181, 158, 0.1);
+            border-color: #6ec1e4;
+            color: #6ec1e4;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-container {
+                padding: 1rem;
+            }
+            
+            .pricing-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
 </head>
+<body>
     <header>
         <div class="logo">
             <a href="index.html">Whiskr.</a>
         </div>
         <nav>
-            <a href="index.html" >Home</a>
-            <a href="#">Arrange a Playdate</a>
+            <a href="index.html">Home</a>
+            <a href="swipingPage.html">Arrange a Playdate</a>
             <a href="price-page.html" class="active">Get Whiskr+</a>
-            <a href="#">Your Messages</a>
+            <a href="messages.html">Your Messages</a>
             <a href="aboutUs.html">About Us</a>
             <a href="Sign_Up.html">Sign up!</a>
             <a href="Sign_In.html">Sign in!</a>
         </nav>
     </header>
 
-<body>
-    <div class="rectangle1">
-        <h1 class="free">
-            FREE
-        </h1>
-        <h2>
-            Regular
-        </h2>
+    <div class="pricing-header">
+        <h1>Choose Your Plan</h1>
+        <p>Find the perfect plan for your pet's social journey</p>
     </div>
-    <div class="rectangle2">
-        <h7 class="10dollar">
-            $ 10 per months
-        </h7>
-        <h2>
-            PAW ELITE
-        </h2>
-        <p class="text2">
-            - No ads <br>
-            <br>
-            - Highlighted<br>
-            <br>
-            - Advanced profile recommendations <br>
-            <br>
-            - Enhanced <br>
-            <br>
-            - Advanced messaging features<br>
-            <br>
-            - Incognito <br>
-            <br>
-            - See who liked you
-        </p>
-    </div>
-    <div class="rectangle3">
-        <h5 class="5dollar">
-            $ 5 per months
-        </h5>
-        <p class="text3">
-            - No ads <br>
-            <br>
-            - Highlighted<br>
-            <br>
-            - Advanced profile recommendations <br>
-            <br>
-        </p>
-        <h3>
-            V.I.Paw
-        </h3>
 
-        <div class="rectangle0">
-            <h6>
-                Whiskr.
-            </h6>
-            <div class="homebutton">
-                Home
-            </div>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <div class="plan-name">Basic</div>
+            <div class="plan-price">Free</div>
+            <div class="plan-duration">forever</div>
+            <ul class="feature-list">
+                <li>Basic Profile</li>
+                <li>3 Matches per Day</li>
+                <li>Basic Chat</li>
+                <li>Community Access</li>
+            </ul>
+            <button class="cta-button secondary">Get Started</button>
         </div>
-        <div class="ppf">
-            <img src="profile.svg" alt="profile" width="60" height="50">
+
+        <div class="pricing-card">
+            <div class="plan-name">V.I.Paw</div>
+            <div class="plan-price">$5</div>
+            <div class="plan-duration">per month</div>
+            <ul class="feature-list">
+                <li>Enhanced Profile</li>
+                <li>10 Matches per Day</li>
+                <li>Priority Support</li>
+                <li>Advanced Features</li>
+                <li>No Ads</li>
+            </ul>
+            <button class="cta-button">Upgrade Now</button>
         </div>
-        <div class="petfriends">
-            <img src="petfriends.png" alt="profile" width="300" height="350">
+
+        <div class="pricing-card">
+            <div class="plan-name">Paw Elite</div>
+            <div class="plan-price">$10</div>
+            <div class="plan-duration">per month</div>
+            <ul class="feature-list">
+                <li>Premium Profile</li>
+                <li>Unlimited Matches</li>
+                <li>24/7 Support</li>
+                <li>All Premium Features</li>
+                <li>Priority Access</li>
+                <li>Exclusive Events</li>
+            </ul>
+            <button class="cta-button">Get Elite</button>
         </div>
+    </div>
 </body>
+</html>
