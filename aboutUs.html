@@ -19,12 +19,103 @@
 			background-color: #7a6c5d;
 			background-repeat: no-repeat;
 			background-size: cover;
-            display: flex;
+            
             justify-content: center;
             align-items: center;
-
+            position: relative;
 		}
+        header {
+  padding: 0.5rem 5%;
+  background-color: #7a6c5d;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: auto;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+header.scrolled {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.logo a {
+  color: #6ec1e4;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo a:hover {
+  color: #c0b59e;
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #c0b59e;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #6ec1e4;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #6ec1e4;
+  transition: all 0.3s ease;
+}
+
+nav a:hover::before,
+nav a.active::before {
+  transform: translateX(0);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+nav a:hover,
+nav a.active {
+  color: #6ec1e4;
+  background-color: rgba(209, 183, 135, 0.25);
+}
 
 
 
@@ -36,6 +127,7 @@
 			padding-right: 10%;
 			padding-top: 5px;
 			padding-bottom: 20px;
+            
 		}
 
 		.page h1 {
@@ -49,6 +141,8 @@
 		.page p {
 			font-size: 16px;
 			font-weight: 550;
+            max-width: 800px;
+            margin: 20px auto;
 		}
 
 
@@ -63,54 +157,77 @@
 
 
 
-        .grid-item {
-            position: relative;
-            overflow: hidden;
-            height: 200px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .grid-item:hover img {
-            transform: scale(1.1);
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-align: center;
-            padding: 10px;
-        }
-        .grid-item:hover .overlay {
-            opacity: 1;
-        }
+        .img {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Centrer la grille */
+    justify-items: center; /* Centrer chaque élément dans la grille */
+}
 
-		.img {
-            
-			display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-            padding: 20px;
-            max-width: 800px;
-            
-		}
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 250px; /* Limiter la largeur maximale */
+    height: 250px; /* Vous pouvez ajuster la hauteur selon vos besoins */
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 10px;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
 	</style>
 
-<body>
+<body> 
+    <header>
+    <div class="logo">
+        <a href="index.html">Whiskr.</a>
+    </div>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="swipingPage.html">Arrange a Playdate</a>
+        <a href="price-page.html">Get Whiskr+</a>
+        <a href="messages.html">Your Messages</a>
+        <a href="aboutUs.html">About Us</a>
+        <a href="Sign_Up.html">Sign up!</a>
+        <a href="Sign_In.html">Sign in!</a>
+    </nav>
+</header>
 	<section id="about us" class="page">
 		<h1>About Us</h1>
 		
