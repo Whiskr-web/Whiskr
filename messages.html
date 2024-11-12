@@ -1,88 +1,445 @@
-<!---Log-in-->
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whiskr: The Ultimate Pet Playdate Connection</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WSHKR Messaging</title>
+    <title>Whiskr: The Ultimate Pet Playdate Connection</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #4CAF50;
-        }
-        .button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
+        @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Varela Round", sans-serif;
         }
 
-        .button:hover {
-            background-color: #45a049;
+        body {
+            background-color: #7a6c5d;
+            color: #ffffff;
+            line-height: 1.6;
         }
-        #messages {
-            border: 1px solid #ccc;
-            width: 80%;
-            height: 300px;
-            overflow-y: scroll;
-            margin-bottom: 10px;
-            padding: 10px;
-            display: none;
+
+        header {
+            padding: 0.5rem 5%;
+            background-color: #7a6c5d;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            gap: 2rem;
         }
-        input[type="text"] {
-            width: 75%;
-            padding: 10px;
-            margin-right: 10px;
-            display: none; 
+
+        header.scrolled {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
-        button.send {
-            display: none;
+
+        .logo {
+            font-size: 2.3rem;
+            font-weight: 800;
+        }
+
+        .logo a {
+            color: #6ec1e4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: #c0b59e;
+            transform: scale(1.05);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .menu-toggle {
+            color: #6ec1e4;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav:last-child {
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .nav a {
+            color: #c0b59e;
+            text-decoration: none;
+            font-size: 0.97rem;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: #6ec1e4;
+            background-color: rgba(209, 183, 135, 0.25);
+        }
+
+        .nav a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #6ec1e4;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav a:hover::before,
+        .nav a.active::before {
+            transform: translateX(0);
+        }
+
+        .main-content {
+            display: flex;
+            height: calc(100vh - 64px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-right: 1px solid #c0b59e;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-250px);
+        }
+
+        .sidebar-menu a {
+            display: block;
+            color: #c0b59e;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background-color: rgba(110, 193, 228, 0.2);
+            color: #6ec1e4;
+        }
+
+        .messages-container {
+            flex: 1;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: margin-left 0.3s ease;
+        }
+
+        .messages-container.expanded {
+            margin-left: -250px;
+        }
+
+        .chat-list {
+            width: 300px;
+            border-right: 1px solid #c0b59e;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-item {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(192, 181, 158, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .chat-item:hover {
+            background-color: rgba(110, 193, 228, 0.1);
+        }
+
+        .chat-item.active {
+            background-color: rgba(110, 193, 228, 0.2);
+        }
+
+        .chat-item h3 {
+            color: #6ec1e4;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .chat-item p {
+            color: #ffffff;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .chat-window {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            background-color: rgba(110, 193, 228, 0.1);
+            border-bottom: 1px solid #c0b59e;
+        }
+
+        .chat-header h3 {
+            color: #6ec1e4;
+            font-weight: 600;
+        }
+
+        .messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message-wrapper {
+            max-width: 70%;
+            align-self: flex-start;
+        }
+
+        .message-wrapper.sent {
+            align-self: flex-end;
+        }
+
+        .message {
+            padding: 0.75rem 1rem 1.2rem;
+            border-radius: 15px;
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        .message.received {
+            background-color: rgba(192, 181, 158, 0.4);
+        }
+
+        .message.sent {
+            background-color: rgba(110, 193, 228, 0.4);
+        }
+
+        .time {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            right: 0.8rem;
+            bottom: 0.3rem;
+        }
+
+        .message-input {
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid #c0b59e;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .message-input input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #c0b59e;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .message-input input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .message-input button {
+            padding: 0.75rem 1.5rem;
+            background-color: #6ec1e4;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+
+        .message-input button:hover {
+            background-color: #5db1d4;
+        }
+
+        @media screen and (max-width: 768px) {
+            .right-nav a {
+                display: none;
+            }
+
+            .sidebar {
+                position: absolute;
+                height: calc(100vh - 60px);
+                z-index: 100;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+
+            .chat-list {
+                width: 100%;
+            }
+
+            .messages-container {
+                flex-direction: column;
+            }
+
+            .messages-container.expanded {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .chat-list {
+                display: none;
+            }
         }
     </style>
 </head>
-</body>
-    <h1>Welcome to WSHKR</h1>
-    <p>Your go-to platform for connecting with customer service and other users.</p>
-    <button class="button" id="startMessagingButton">Go to Messaging</button>
-    <div id="messages"></div>
-    <input type="text" id="messageInput" placeholder="Type your message...">
-    <button class="button send" onclick="sendMessage()">Send</button>
-    <script>
-        const startMessagingButton = document.getElementById('startMessagingButton');
-        const messagesDiv = document.getElementById('messages');
-        const messageInput = document.getElementById('messageInput');
-        const sendButton = document.querySelector('.send');
-        let socket;
 
-        startMessagingButton.onclick = function() {
-            this.style.display = 'none'; 
-            messagesDiv.style.display = 'block'; 
-            messageInput.style.display = 'block'; 
-            sendButton.style.display = 'block'; 
-            
-            socket = new WebSocket('ws://localhost:8080');
-            socket.onmessage = function(event) {
-                let messageDiv = document.createElement('div');
-                messageDiv.textContent = event.data;
-                messagesDiv.appendChild(messageDiv);
-            };
-        };
-        function sendMessage() {
-            socket.send(messageInput.value);
-            messageInput.value = ''; 
+<body>
+    <header>
+        <div class="nav">
+            <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+        </div>
+        <div class="logo">
+            <a href="index.html">Whiskr.</a>
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="swipingPage.html">Arrange a Playdate</a>
+            <a href="price-page.html">Get Whiskr+</a>
+            <a href="messages.html" class="active">Your Messages</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="Sign_Up.html">Sign up!</a>
+            <a href="Sign_In.html">Sign in!</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="active">Messages</a>
+                <a href="#">Pending Requests</a>
+                <a href="#">Scheduled Playdates</a>
+                <a href="#">Archived Chats</a>
+                <a href="#">Settings</a>
+            </div>
+        </aside>
+
+        <div class="messages-container">
+            <div class="chat-list">
+                <div class="chat-item active">
+                    <h3>Max & Luna's Parent</h3>
+                    <span class="time">10:45 AM</span>
+                    <p>Luna really enjoys playing with Max! 🐕</p>
+                </div>
+                <div class="chat-item">
+                    <h3>Bailey's Human</h3>
+                    <span class="time">9:30 AM</span>
+                    <p>Thanks for the great playdate tips! 🐾</p>
+                </div>
+                <div class="chat-item">
+                    <h3>Charlie's Family</h3>
+                    <span class="time">Yesterday</span>
+                    <p>The agility course was so much fun!</p>
+                </div>
+            </div>
+
+            <div class="chat-window">
+                <div class="chat-header">
+                    <h3>Max & Luna's Parent</h3>
+                </div>
+
+                <div class="messages">
+                    <div class="message-wrapper">
+                        <div class="message received">
+                            Hi there! Luna has been so excited since we matched on Whiskr! 🐕
+                            <span class="time">10:30 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message-wrapper sent">
+                        <div class="message sent">
+                            Max too! He loves making new furry friends. What breed is Luna? 🐾
+                            <span class="time">10:32 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message-wrapper">
+                        <div class="message received">
+                            She's a Golden Retriever, 2 years old. Super friendly and loves to play fetch! How about
+                            Max?
+                            <span class="time">10:35 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message-wrapper sent">
+                        <div class="message sent">
+                            Max is a 3-year-old Labrador. He's great with other dogs and absolutely loves the dog park
+                            near
+                            Central Street!
+                            <span class="time">10:36 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message-wrapper">
+                        <div class="message received">
+                            That's perfect! Would you like to meet there this Saturday? Luna loves that park too! 🌞
+                            <span class="time">10:40 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message-wrapper sent">
+                        <div class="message sent">
+                            Sounds great! How about 2 PM? We usually go then because it's not too crowded 🐕
+                            <span class="time">10:42 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="message-wrapper">
+                        <div class="message received">
+                            2 PM works perfectly! Looking forward to it! I'll bring some tennis balls 🎾
+                            <span class="time">10:45 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-input">
+                    <input type="text" placeholder="Type a message...">
+                    <button>Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const messagesContainer = document.querySelector('.messages-container');
+
+            sidebar.classList.toggle('collapsed');
+            messagesContainer.classList.toggle('expanded');
         }
     </script>
 </body>
+
 </html>
