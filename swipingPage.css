@@ -114,16 +114,17 @@ nav a.active {
   align-items: center; /* Center them vertically */
   height: 100vh; /* Full height for vertical centering */
   width: 80%; /* Full width to make sure it's spread across the viewport */
-  padding: 0 0px; /* Optional: Add padding to give space between elements and edges */
+  padding: 0px 0px; /* Optional: Add padding to give space between elements and edges */
   margin-left: auto;
   margin-right: auto;
 }
 
 .exterior {
+  padding: 0px 0px;
   display: flex;
   justify-content: center; /* Center the .PanelTotal horizontally */
   align-items: center; /* Vertically align the content */
-  height: 100vh; /* Full viewport height */
+  height: 92vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
 }
 
@@ -153,13 +154,11 @@ a:hover {
   color: #535bf2;
 }
 
+
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
   background-color: rgb(128,108,92);
+  padding: 0px 0px;
+  margin: 0px 0px;
 }
 
 h1 {
